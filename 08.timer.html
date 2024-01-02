@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+      integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <style>
+      .alert {
+        background-color: lightcoral;
+        padding: 10px;
+        width: 15rem;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="alert alert-danger"><span id="num">5</span>초 이내 구매시 사은품 증정</div>
+
+    <script>
+      var count = 5;
+      setInterval(function () {
+        count -= 1;
+        if (count >= 0) {
+          document.querySelector('#num').innerHTML = count;
+        }
+      }, 1000);
+      setTimeout(() => {
+        $('.alert').hide();
+      }, 5500);
+    </script>
+  </body>
+</html>

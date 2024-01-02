@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        width: 30rem;
+        margin-inline: auto;
+      }
+      .black-bg {
+        /* top 설정을 해줘야 원하는대로 동작한다 */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 5;
+        padding: 30px;
+        visibility: hidden;
+        opacity: 0;
+        transition: all 0.5s;
+      }
+      .white-bg {
+        background: white;
+        border-radius: 5px;
+        padding: 30px;
+        z-index: 6;
+      }
+      .show-modal {
+        visibility: visible;
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <article style="background-color: coral">
+      <div class="main-bg">
+        <h4>event-bubbling basic</h4>
+        <button id="login" class="btn btn-danger">로그인</button>
+      </div>
+      <div class="black-bg">
+        <div class="white-bg">
+          <h4>로그인하세요</h4>
+          <button class="btn btn-danger" id="close">닫기</button>
+        </div>
+      </div>
+    </article>
+    <script>
+      document.querySelector('#login').addEventListener('click', () => {
+        document.querySelector('.black-bg').classList.add('show-modal');
+      });
+      document.querySelector('#close').addEventListener('click', () => {
+        document.querySelector('.black-bg').classList.remove('show-modal');
+      });
+      document.querySelector('.black-bg').addEventListener('click', function (e) {
+        console.log(this);
+        console.log(e.target);
+        if (e.target == this) {
+          document.querySelector('.black-bg').classList.remove('show-modal');
+        }
+        // 이벤트 관련 함수
+        // e.target; -> 유저가 실제로 누른 요소
+        // e.currentTarget; -> 이벤트 리스너가 달린 곳 (this)와 같다
+        // -> arrow func의 this는 window를 가리킴
+        // -> function(e) {} 는 this가 document.querySelector('.black-bg')
+        // e.preventDefault(); -> 이벤트 기본동작 막아줌
+        // e.stopPropagation(); -> 이벤트 버블링 중단
+      });
+    </script>
+  </body>
+</html>

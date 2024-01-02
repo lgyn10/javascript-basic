@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .alert {
+        background-color: skyblue;
+        padding: 20px;
+        color: white;
+        border-radius: 5px;
+        display: none;
+        /* block 은 보여준다 */
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- 1 -->
+    <div class="alert">
+      알림창 클래스 1번
+      <button onclick="closeAlert()">닫기</button>
+    </div>
+    <button onclick="openAlert()">버튼</button>
+
+    <!-- 2 -->
+    <div class="alert">
+      알림창 클래스 2번
+      <button onclick="closeAlert()">닫기</button>
+    </div>
+    <button onclick="openAlert()">버튼</button>
+    <script>
+      // on/off 메소드
+      // getElementsByClassName은 클래스 모든 요소를 가져온다
+      function openAlert() {
+        document.getElementsByClassName('alert')[0].style.display = 'block';
+      }
+      function closeAlert() {
+        document.getElementsByClassName('alert')[0].style.display = 'none';
+      }
+      // 그럼 class 인덱스를 param으로 접근할 수 있나?
+      // -> 아직 모르겠다
+
+      // getElementsByTagName : <button>과 같은 요소에 접근
+      // getElementsByName : 폼의 name='' 속성에 접근
+    </script>
+  </body>
+</html>

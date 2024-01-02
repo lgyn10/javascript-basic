@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        width: 20rem;
+        margin-inline: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <article>
+      <h3>자동차 정보</h3>
+      <div class="name"></div>
+      <div class="price"></div>
+      <div class="color"></div>
+    </article>
+    <article>
+      <h3>학생 정보</h3>
+      <div class="stName"></div>
+      <div class="age"></div>
+      <div class="department"></div>
+    </article>
+  </body>
+  <script>
+    let car = {name: '소나타', price: 2000, color: 'gery'};
+    document.querySelector('.name').innerHTML = car['name'];
+    document.querySelector('.price').innerHTML = car.price;
+    document.querySelector('.color').innerHTML = car['color'];
+
+    let student = ['홍길동', 20, '사융'];
+    document.getElementsByClassName('stName')[0].innerHTML = student[0];
+    document.getElementsByClassName('age')[0].innerHTML = student[1];
+    document.getElementsByClassName('department')[0].innerHTML = student[2];
+  </script>
+</html>

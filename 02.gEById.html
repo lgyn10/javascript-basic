@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .alert-box {
+        background-color: skyblue;
+        padding: 20px;
+        color: white;
+        border-radius: 5px;
+        display: none;
+        /* block 은 보여준다 */
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="alert-box" id="alert">
+      알림창
+      <button onclick="closeAlert()">닫기</button>
+    </div>
+    <button onclick="openAlert('block')">버튼</button>
+
+    <div class="alert-box" id="alert1">
+      아이디를 입력하세요
+      <button onclick="closeAlertParam('alert1')">닫기</button>
+    </div>
+    <button onclick="openAlertParam('alert1')">버튼 1</button>
+    <div class="alert-box" id="alert2">
+      비밀번호를 입력하세요
+      <button onclick="closeAlertParam('alert2')">닫기</button>
+    </div>
+    <button onclick="openAlertParam('alert2')">버튼 2</button>
+
+    <script>
+      // innerHTML
+      document.getElementById('alert').innerHTML = 'innerHTML 속성을 이용한 알림창';
+
+      // on/off 메소드
+      function openAlert(param) {
+        document.getElementById('alert').style.display = param;
+      }
+      function closeAlert() {
+        document.getElementById('alert').style.display = 'none';
+      }
+
+      // 파라미터 활용
+      function openAlertParam(id) {
+        document.getElementById(id.toString()).style.display = 'block';
+      }
+      function closeAlertParam(id) {
+        document.getElementById(id.toString()).style.display = 'none';
+      }
+      // open, close 키워드는 예약어 -> 다른 키워드로
+    </script>
+  </body>
+</html>

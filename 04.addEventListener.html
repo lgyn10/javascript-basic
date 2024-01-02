@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .alert-box {
+        background-color: skyblue;
+        padding: 20px;
+        color: white;
+        border-radius: 5px;
+        display: none;
+        /* block 은 보여준다 */
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="alert-box" id="alert">
+      알림창(addEventListener)
+      <button id="close">닫기</button>
+    </div>
+    <button onclick="openAlert()">버튼</button>
+
+    <script>
+      // addEventListener : id -> click -> 메소드 (속성명, 함수)-인자 2개
+      // 익명 함수 (콜백 함수)
+      document.getElementById('close').addEventListener('click', function () {
+        document.getElementById('alert').style.display = 'none';
+      });
+
+      // on/off 메소드
+      function openAlert() {
+        document.getElementById('alert').style.display = 'block';
+      }
+
+      // addEventListener() 쓰면 onclick 필요 없음
+    </script>
+  </body>
+</html>

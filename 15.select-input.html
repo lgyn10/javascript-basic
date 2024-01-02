@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .selectHidden {
+        /* display속성은 공간을 차지하지 않음 */
+        /* visibility속성은 공간을 차지함 */
+        display: none;
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 1s;
+        /* 애니메이션이 안 먹음 */
+      }
+      .show {
+        display: block;
+        visibility: visible;
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <form class="container my-5 form-group">
+      <p>상품선택</p>
+      <select class="form-select mt-2" value="0" id="selectOne">
+        <option value="0">상품을 선택하세요</option>
+        <option id="cap">모자</option>
+        <option id="shirt">셔츠</option>
+        <option id="shoes">신발</option>
+      </select>
+      <select class="form-select mt-2 selectHidden" id="shirt-select">
+        <option value="0">셔츠 사이즈를 선택하세요</option>
+        <option value="90">90</option>
+        <option value="95">95</option>
+        <option value="100">100</option>
+      </select>
+      <select class="form-select mt-2 selectHidden" id="cap-select">
+        <option value="0">모자 색상를 선택하세요</option>
+        <option value="블랙">블랙</option>
+        <option value="빨강">빨강</option>
+        <option value="노랑">노랑</option>
+      </select>
+      <select class="form-select mt-2 selectHidden" id="shoes-select">
+        <option value="0">신발 사이즈를 선택하세요</option>
+        <option value="250">250</option>
+        <option value="255">255</option>
+        <option value="260">260</option>
+        <option value="265">265</option>
+        <option value="270">270</option>
+      </select>
+    </form>
+    <script>
+      // 이벤트는 input도 먹고 change도 된다
+      document.getElementById('selectOne').addEventListener('input', (e) => {
+        console.log(e.currentTarget.value); // 모자, 셔츠, 신발 | target or currentTarget
+        console.log(document.getElementById('shirt').value); // 셔츠
+        if (e.currentTarget.value == document.getElementById('shirt').value) {
+          document.querySelector('#shirt-select').classList.add('show');
+        } else {
+          document.querySelector('#shirt-select').classList.remove('show');
+        }
+        if (e.currentTarget.value == document.getElementById('cap').value) {
+          document.querySelector('#cap-select').classList.add('show');
+        } else {
+          document.querySelector('#cap-select').classList.remove('show');
+        }
+        if (e.currentTarget.value == document.getElementById('shoes').value) {
+          document.querySelector('#shoes-select').classList.add('show');
+        } else {
+          document.querySelector('#shoes-select').classList.remove('show');
+        }
+      });
+    </script>
+  </body>
+</html>
